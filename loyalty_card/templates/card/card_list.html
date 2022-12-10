@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    Cards List
+{% endblock title %}
+{% block content %}
+    <div class="row my-3">
+        <div class="col">
+        <h1 class="mb-2">Card List</h1>
+            {% for card in card_list %}
+                <div class="card mt-2" style="width: 25rem;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-8">
+                                <h4 class="card-title">{{ card.series }}{{ card.number }}</h4>
+                                <p class="fs-5">Amount: {{ card.amount }}</p>
+                                <p>Release {{ card.release_date|date:"d E Y" }} <br>
+                                    Expiration {{ card.expiration_date|date:"d E Y" }} <br>
+                                    Last use {{ card.use_date|date:"d E Y" }}</p>
+                                <a href="{% url 'card:card_detail' card.id %}" class="card-link">Card details</a>
+                            </div>
+                            <div class="col-4 align-self-start">
+                                {% include 'includes/status_badge.html' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

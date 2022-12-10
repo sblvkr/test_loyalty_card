@@ -1,0 +1,7 @@
+ {% if card.status == 'AC' %}
+    <span class="badge text-bg-success">{{ card.get_status_display }}</span>
+{% elif card.status == 'NO' %}
+    <span class="badge text-bg-secondary">{{ card.get_status_display }}</span>
+{% elif card.status == 'EX' %}
+    <span class="badge text-bg-danger">{{ card.get_status_display }}</span>
+{% endif %}

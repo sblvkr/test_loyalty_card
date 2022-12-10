@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+    Card #{{ card.series }}{{ card.number }}
+{% endblock title %}
+{% block content %}
+     <div class="row my-3">
+        <div class="col">
+            <h1 class="mb-2">Card #{{ card.series }}{{ card.number }}</h1>
+            {% include 'includes/status_badge.html' %}
+            <p class="fs-4">Amount: {{ card.amount }}</p>
+            <p>Release {{ card.release_date|date:"d E Y" }} <br>
+                Expiration {{ card.expiration_date|date:"d E Y" }} <br>
+                Last use {{ card.use_date|date:"d E Y" }}</p>
+        </div>
+     </div>
+{% endblock content %}

@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.views.generic import DetailView, ListView
 
-# Create your views here.
+from card.models import Card
+
+
+class CardListView(ListView):
+    model = Card
+    paginate_by = 10
+
+
+class CardDetailView(DetailView):
+    model = Card
